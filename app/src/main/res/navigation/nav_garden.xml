@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/month_fragment">
+
+    <fragment
+        android:id="@+id/month_fragment"
+        android:name="com.jiban.goodday.MonthFragment"
+        tools:layout="@layout/fragment_month">
+
+        <action
+            android:id="@+id/action_month_fragment_to_goodday_detail_fragment"
+            app:destination="@id/goodday_detail_fragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/goodday_detail_fragment"
+        android:name="com.jiban.goodday.GooddayDetailFragment"
+        android:label="@string/goodday_details_title"
+        tools:layout="@layout/fragment_goodday_detail">
+
+        <action
+            android:id="@+id/action_goodday_detail_fragment_to_month_fragment"
+            app:destination="@id/month_fragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <argument
+            android:name="goodday"
+            app:argType="string" />
+    </fragment>
+
+
+</navigation>

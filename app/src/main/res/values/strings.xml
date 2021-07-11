@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">GoodDay</string>
+    <string name="label1_1">Outdoor</string>
+    <string name="label1_2">Move</string>
+    <string name="label1_3">Love</string>
+    <string name="label1_4">Money</string>
+    <string name="label2_1">Korea</string>
+    <string name="label2_2">Seoul</string>
+    <string name="label2_3">Jeju</string>
+    <string name="label2_4">Gangwon</string>
+    <string name="have_a_good_day">Have a Good Day!</string>
+    <string name="question_article1">What do you do?</string>
+    <string name="question_article2">Where do you go?</string>
+    <string name="question_month">What month?</string>
+    <string name="title">goodDay</string>
+    <string name="secondary_text">theDayOfWeek</string>
+    <string name="headTitle">Month</string>
+    <string name="goodday_details_title">Good Day Detail</string>
+</resources>
