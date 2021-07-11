@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity() {
                 Toast.LENGTH_SHORT
             ).show()
         }
-
+//test
         binding.getBtn.setOnClickListener {
 
             var id1: Int = binding.radioGroup1.checkedRadioButtonId
