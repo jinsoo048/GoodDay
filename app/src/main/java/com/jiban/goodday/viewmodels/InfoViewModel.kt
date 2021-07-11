@@ -17,30 +17,30 @@ class InfoViewModel @Inject internal constructor(
 
     val infos: LiveData<List<Info>> = repository.getInfos().asLiveData()
 
-    fun getSearchMonth(myMonth: String): LiveData<List<Info>> = repository.getSearchMonth(myMonth)
+    fun getSearchMonth(myMonth: Int): LiveData<List<Info>> = repository.getSearchMonth(myMonth)
 
-    fun getSearchMonthOutdoorAndKorea(myMonth: String): LiveData<List<Info>> =
+    fun getSearchMonthOutdoorAndKorea(myMonth: Int): LiveData<List<Info>> =
         repository.getSearchMonthOutdoorAndKorea(myMonth)
 
-    fun getSearchMonthOutdoorAndSeoul(myMonth: String): LiveData<List<Info>> =
+    fun getSearchMonthOutdoorAndSeoul(myMonth: Int): LiveData<List<Info>> =
         repository.getSearchMonthOutdoorAndSeoul(myMonth)
 
-    fun getSearchMonthOutdoorAndjejue(myMonth: String): LiveData<List<Info>> =
+    fun getSearchMonthOutdoorAndjejue(myMonth: Int): LiveData<List<Info>> =
         repository.getSearchMonthOutdoorAndjejue(myMonth)
 
-    fun getSearchMonthOutdoorAndGangwon(myMonth: String): LiveData<List<Info>> =
+    fun getSearchMonthOutdoorAndGangwon(myMonth: Int): LiveData<List<Info>> =
         repository.getSearchMonthOutdoorAndGangwon(myMonth)
 
-    fun getSearchMonthMoveAndKorea(myMonth: String): LiveData<List<Info>> =
+    fun getSearchMonthMoveAndKorea(myMonth: Int): LiveData<List<Info>> =
         repository.getSearchMonthMoveAndKorea(myMonth)
 
-    fun getSearchMonthMoveAndSeoul(myMonth: String): LiveData<List<Info>> =
+    fun getSearchMonthMoveAndSeoul(myMonth: Int): LiveData<List<Info>> =
         repository.getSearchMonthMoveAndSeoul(myMonth)
 
-    fun getSearchMonthMoveAndJejue(myMonth: String): LiveData<List<Info>> =
+    fun getSearchMonthMoveAndJejue(myMonth: Int): LiveData<List<Info>> =
         repository.getSearchMonthMoveAndJejue(myMonth)
 
-    fun getSearchMonthMoveAndGangwon(myMonth: String): LiveData<List<Info>> =
+    fun getSearchMonthMoveAndGangwon(myMonth: Int): LiveData<List<Info>> =
         repository.getSearchMonthMoveAndGangwon(myMonth)
 
 }

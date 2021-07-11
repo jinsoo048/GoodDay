@@ -5,8 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.jiban.goodday.databinding.FragmentOpenBinding
 
 class OpenFragment : Fragment() {
+    private var _binding: FragmentOpenBinding? = null
+    private val binding get() = _binding !!
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -14,5 +17,11 @@ class OpenFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.fragment_open, container, false)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+
     }
 }

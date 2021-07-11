@@ -31,23 +31,29 @@
 
                 <TextView
                     android:id="@+id/monthTv"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
                     android:layout_weight="1"
                     android:padding="@dimen/small_padding"
                     android:text="@string/question_month"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
 
-                <EditText
-                    android:id="@+id/monthEt"
-                    android:layout_width="match_parent"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/menu"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="Month"
-                    android:imeOptions="normal"
-                    android:lines="1"
-                    android:maxLines="1"
-                    android:numeric="integer" />
+                    android:hint="@string/label">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/monthAutoComplete"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:inputType="none" />
+
+                </com.google.android.material.textfield.TextInputLayout>
 
             </LinearLayout>
 
@@ -174,6 +180,8 @@
         android:id="@+id/getBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
+        app:icon="@drawable/ic_baseline_search_24"
         android:layout_marginLeft="@dimen/standard_margin"
         android:layout_marginTop="@dimen/standard_margin"
         android:layout_marginBottom="50dp"

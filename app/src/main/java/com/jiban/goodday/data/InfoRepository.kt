@@ -14,31 +14,31 @@ class InfoRepository @Inject constructor(private val infoDao: InfoDao) {
 
     fun getMyday(myMonth: Int, myDay: Int) = infoDao.getMyday(myMonth, myDay)
 
-    fun getSearchMonth(myMonth: String): LiveData<List<Info>> =
+    fun getSearchMonth(myMonth: Int): LiveData<List<Info>> =
         infoDao.getSearchMonth(myMonth).asLiveData()
 
-    fun getSearchMonthOutdoorAndKorea(myMonth: String): LiveData<List<Info>> =
+    fun getSearchMonthOutdoorAndKorea(myMonth: Int): LiveData<List<Info>> =
         infoDao.getSearchMonthOutdoorAndKorea(myMonth).asLiveData()
 
-    fun getSearchMonthOutdoorAndSeoul(myMonth: String): LiveData<List<Info>> =
+    fun getSearchMonthOutdoorAndSeoul(myMonth: Int): LiveData<List<Info>> =
         infoDao.getSearchMonthOutdoorAndSeoul(myMonth).asLiveData()
 
-    fun getSearchMonthOutdoorAndjejue(myMonth: String): LiveData<List<Info>> =
+    fun getSearchMonthOutdoorAndjejue(myMonth: Int): LiveData<List<Info>> =
         infoDao.getSearchMonthOutdoorAndjejue(myMonth).asLiveData()
 
-    fun getSearchMonthOutdoorAndGangwon(myMonth: String): LiveData<List<Info>> =
+    fun getSearchMonthOutdoorAndGangwon(myMonth: Int): LiveData<List<Info>> =
         infoDao.getSearchMonthOutdoorAndGangwon(myMonth).asLiveData()
 
-    fun getSearchMonthMoveAndKorea(myMonth: String): LiveData<List<Info>> =
+    fun getSearchMonthMoveAndKorea(myMonth: Int): LiveData<List<Info>> =
         infoDao.getSearchMonthMoveAndKorea(myMonth).asLiveData()
 
-    fun getSearchMonthMoveAndSeoul(myMonth: String): LiveData<List<Info>> =
+    fun getSearchMonthMoveAndSeoul(myMonth: Int): LiveData<List<Info>> =
         infoDao.getSearchMonthMoveAndSeoul(myMonth).asLiveData()
 
-    fun getSearchMonthMoveAndJejue(myMonth: String): LiveData<List<Info>> =
+    fun getSearchMonthMoveAndJejue(myMonth: Int): LiveData<List<Info>> =
         infoDao.getSearchMonthMoveAndJejue(myMonth).asLiveData()
 
-    fun getSearchMonthMoveAndGangwon(myMonth: String): LiveData<List<Info>> =
+    fun getSearchMonthMoveAndGangwon(myMonth: Int): LiveData<List<Info>> =
         infoDao.getSearchMonthMoveAndGangwon(myMonth).asLiveData()
 
 

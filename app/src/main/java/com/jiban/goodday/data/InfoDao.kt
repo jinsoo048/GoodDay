@@ -16,33 +16,33 @@ interface InfoDao {
     fun getMyday(myMonth: Int, myday: Int): Flow<Info>
 
     @Query("Select * FROM info_table WHERE month = :myMonth")
-    fun getSearchMonth(myMonth: String): Flow<List<Info>>
+    fun getSearchMonth(myMonth: Int): Flow<List<Info>>
 
     //Outdoor
     @Query("SELECT * FROM info_table WHERE month = :myMonth AND korea < 5")
-    fun getSearchMonthOutdoorAndKorea(myMonth: String): Flow<List<Info>>
+    fun getSearchMonthOutdoorAndKorea(myMonth: Int): Flow<List<Info>>
 
     @Query("SELECT * FROM info_table WHERE month = :myMonth AND seoul < 5")
-    fun getSearchMonthOutdoorAndSeoul(myMonth: String): Flow<List<Info>>
+    fun getSearchMonthOutdoorAndSeoul(myMonth: Int): Flow<List<Info>>
 
     @Query("SELECT * FROM info_table WHERE month = :myMonth AND jejue < 5")
-    fun getSearchMonthOutdoorAndjejue(myMonth: String): Flow<List<Info>>
+    fun getSearchMonthOutdoorAndjejue(myMonth: Int): Flow<List<Info>>
 
     @Query("SELECT * FROM info_table WHERE month = :myMonth AND gangwon < 5")
-    fun getSearchMonthOutdoorAndGangwon(myMonth: String): Flow<List<Info>>
+    fun getSearchMonthOutdoorAndGangwon(myMonth: Int): Flow<List<Info>>
 
     //Move
     @Query("SELECT * FROM info_table WHERE month = :myMonth AND korea < 5 AND theDayWithoutSohn LIKE '%yes%'")
-    fun getSearchMonthMoveAndKorea(myMonth: String): Flow<List<Info>>
+    fun getSearchMonthMoveAndKorea(myMonth: Int): Flow<List<Info>>
 
     @Query("SELECT * FROM info_table WHERE month = :myMonth AND seoul < 5 AND theDayWithoutSohn LIKE '%yes%'")
-    fun getSearchMonthMoveAndSeoul(myMonth: String): Flow<List<Info>>
+    fun getSearchMonthMoveAndSeoul(myMonth: Int): Flow<List<Info>>
 
     @Query("SELECT * FROM info_table WHERE month = :myMonth AND jejue < 5 AND theDayWithoutSohn LIKE '%yes%'")
-    fun getSearchMonthMoveAndJejue(myMonth: String): Flow<List<Info>>
+    fun getSearchMonthMoveAndJejue(myMonth: Int): Flow<List<Info>>
 
     @Query("SELECT * FROM info_table WHERE month = :myMonth AND gangwon < 5 AND theDayWithoutSohn LIKE '%yes%'")
-    fun getSearchMonthMoveAndGangwon(myMonth: String): Flow<List<Info>>
+    fun getSearchMonthMoveAndGangwon(myMonth: Int): Flow<List<Info>>
 
     @Query("Select * FROM info_table ORDER BY korea ASC")
     fun getKorea(): Flow<List<Info>>

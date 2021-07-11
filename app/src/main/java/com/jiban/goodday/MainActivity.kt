@@ -1,6 +1,7 @@
 package com.jiban.goodday
 
 import android.os.Bundle
+import android.widget.ArrayAdapter
 import android.widget.RadioButton
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -9,10 +10,9 @@ import androidx.fragment.app.FragmentTransaction
 import com.jiban.goodday.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 
+
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
-
-    //private val viewModel: WeatherAndSohnViewModel by viewModels()
 
     private lateinit var binding: ActivityMainBinding
 
@@ -46,7 +46,20 @@ class MainActivity : AppCompatActivity() {
                 Toast.LENGTH_SHORT
             ).show()
         }
-//test
+
+        //month menu
+        val englishMonthList: Array<out String> = resources.getStringArray(R.array.month_menu)
+        var englishMonth: String? = null
+
+        val adapter = ArrayAdapter(this, R.layout.item_monthmenu, englishMonthList)
+        binding.monthAutoComplete.setAdapter(adapter)
+
+        binding.monthAutoComplete.setOnItemClickListener { _, _, position, _ ->
+            englishMonth = adapter.getItem(position) ?: ""
+            Toast.makeText(this, englishMonth, Toast.LENGTH_LONG).show()
+        }
+
+        // button processing
         binding.getBtn.setOnClickListener {
 
             var id1: Int = binding.radioGroup1.checkedRadioButtonId
@@ -85,7 +98,23 @@ class MainActivity : AppCompatActivity() {
 
             //get the data
             val bundle = Bundle()
-            val myMonth = binding.monthEt.text
+            //val myMonth = binding.monthEt.text
+            var myMonth: Int? = 0
+            when (englishMonth) {
+                "Jan" -> myMonth = 1
+                "Feb" -> myMonth = 2
+                "Mar" -> myMonth = 3
+                "Apr" -> myMonth = 4
+                "May" -> myMonth = 5
+                "Jun" -> myMonth = 6
+                "Jul" -> myMonth = 7
+                "Aug" -> myMonth = 8
+                "Sep" -> myMonth = 9
+                "Oct" -> myMonth = 10
+                "Nov" -> myMonth = 11
+                "Dec" -> myMonth = 12
+            }
+
             val myDo = radio1.text
             val myGo = radio2.text
 
@@ -103,5 +132,6 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
+
 }
 

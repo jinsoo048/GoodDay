@@ -6,33 +6,34 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.jiban.goodday.CellClickListener
 import com.jiban.goodday.data.Info
 import com.jiban.goodday.databinding.ItemGooddayBinding
 
 
-class InfoNewAdapter :
-    ListAdapter<Info, InfoNewHolder>(InfoNewsComparator) {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): InfoNewHolder {
-        return InfoNewHolder(
+class InfoNewAdapter(private val cellClickListener: CellClickListener) :
+    ListAdapter<Info, InfoNewViewHolder>(InfoNewsComparator) {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): InfoNewViewHolder {
+        return InfoNewViewHolder(
             ItemGooddayBinding.inflate(
                 LayoutInflater.from(parent.context), parent, false
             )
         )
     }
 
-    override fun onBindViewHolder(holder: InfoNewHolder, position: Int) {
+    override fun onBindViewHolder(holder: InfoNewViewHolder, position: Int) {
         val item = getItem(position)
         item?.let { holder.bind(it) }
 
         holder.itemView.setOnClickListener {
             if (item != null) {
-                //
+                cellClickListener.onCellClickListener(item)
             }
         }
     }
 }
 
-class InfoNewHolder(private val binding: ItemGooddayBinding) :
+class InfoNewViewHolder(private val binding: ItemGooddayBinding) :
     RecyclerView.ViewHolder(binding.root) {
     fun bind(info: Info) = with(binding) {
         dayTv.text = info.day.toString()

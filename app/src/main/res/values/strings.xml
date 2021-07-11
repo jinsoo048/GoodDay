@@ -12,8 +12,41 @@
     <string name="question_article1">What do you do?</string>
     <string name="question_article2">Where do you go?</string>
     <string name="question_month">What month?</string>
-    <string name="title">goodDay</string>
+    <string name="title">Good Day!</string>
     <string name="secondary_text">theDayOfWeek</string>
     <string name="headTitle">Month</string>
     <string name="goodday_details_title">Good Day Detail</string>
+    <string name="option_1">Jan</string>
+    <string name="option_2">Feb</string>
+    <string name="option_3">Mar</string>
+    <string name="option_4">Apr</string>
+    <string name="option_5">May</string>
+    <string name="option_6">Jun</string>
+    <string name="option_7">Jul</string>
+    <string name="option_8">Aug</string>
+    <string name="option_9">Sep</string>
+    <string name="option_10">Oct</string>
+    <string name="option_11">Nov</string>
+    <string name="option_12">Dec</string>
+    <string name="label">Select a Month</string>
+    <string name="cancel">CANCEL</string>
+    <string name="decline">DECLINE</string>
+    <string name="accept">OK</string>
+    <string name="supporting_text">30년간의 기상청 날씨 통계치와 한국의 음양학설에 기반하여 선정한 운수 좋은날 중 하나입니다.</string>
+
+    //monthMenu
+    <string-array name="month_menu">
+        <item>Jan</item>
+        <item>Feb</item>
+        <item>Mar</item>
+        <item>Apr</item>
+        <item>May</item>
+        <item>Jun</item>
+        <item>Jul</item>
+        <item>Aug</item>
+        <item>Sep</item>
+        <item>Oct</item>
+        <item>Nov</item>
+        <item>Dec</item>
+    </string-array>
 </resources>
