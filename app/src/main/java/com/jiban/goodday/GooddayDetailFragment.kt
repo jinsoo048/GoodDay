@@ -24,17 +24,15 @@ class GooddayDetailFragment(
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentGooddayDetailBinding.inflate(inflater, container, false)
-
         binding.monthTv.text = myMonth.toString()
-
         val view = binding.root
+
         return view
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-
     }
 
 }

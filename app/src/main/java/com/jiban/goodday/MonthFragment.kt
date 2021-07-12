@@ -26,14 +26,11 @@ class MonthFragment : Fragment(), CellClickListener {
 
     private val adapter = InfoNewAdapter(this)
     private var searchJob: Job? = null
-
     private val infoViewModel: InfoViewModel by viewModels()
-
     private var _binding: FragmentMonthBinding? = null
     private val binding get() = _binding !!
 
     //data transaction of bundle
-
     private var myMonthString: String? = null
     private var myMonth: Int = 0
     private var myDo: String? = null
@@ -46,7 +43,6 @@ class MonthFragment : Fragment(), CellClickListener {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentMonthBinding.inflate(inflater, container, false)
-
         myMonthString = this.arguments !!.getString("myMonth")
         myDo = this.arguments !!.getString("myDo")
         myGo = this.arguments !!.getString("myGo")
@@ -57,32 +53,28 @@ class MonthFragment : Fragment(), CellClickListener {
         //recyclerview adapter
         binding.frgmentRv.adapter = adapter
         binding.frgmentRv.layoutManager = GridLayoutManager(context, 2)
-
         myMonth = myMonthString !!.toInt()
 
         if (myMonth != null) {
             when (myDo) {
                 "Outdoor" -> {
-                    Log.d("JJS", "Outdoor")
+                    //Log.d("JJS", "Outdoor")
                     when (myGo) {
                         "Korea" -> {
-                            Log.d("JJS", "Korea")
+                            //Log.d("JJS", "Korea")
                             displayInfosByMonthExcerciseAndKorea(myMonth)
                         }
                         "Seoul" -> {
-                            Log.d("JJS", "Seoul")
+                            //Log.d("JJS", "Seoul")
                             displayInfosByMonthOutdoorAndSeoul(myMonth)
-
                         }
                         "Jeju" -> {
-                            Log.d("JJS", "Jeju")
+                            //Log.d("JJS", "Jeju")
                             displayInfosByMonthOutdoorAndjejue(myMonth)
-
                         }
                         "Gangwon" -> {
-                            Log.d("JJS", "Gangwon")
+                            //Log.d("JJS", "Gangwon")
                             displayInfosByMonthOutdoorAndGangwon(myMonth)
-
                         }
                     }
                 }
@@ -91,86 +83,69 @@ class MonthFragment : Fragment(), CellClickListener {
                     val sohn: String = "yes"
                     when (myGo) {
                         "Korea" -> {
-                            Log.d("JJS", "Korea")
+                            //Log.d("JJS", "Korea")
                             displayInfosByMonthMoveAndKorea(myMonth)
-
                         }
                         "Seoul" -> {
-                            Log.d("JJS", "Seoul")
+                            //Log.d("JJS", "Seoul")
                             displayInfosByMonthMoveAndSeoul(myMonth)
-
                         }
                         "Jeju" -> {
-                            Log.d("JJS", "Jeju")
+                            //Log.d("JJS", "Jeju")
                             displayInfosByMonthMoveAndJejue(myMonth)
-
                         }
                         "Gangwon" -> {
-                            Log.d("JJS", "Gangwon")
+                            //Log.d("JJS", "Gangwon")
                             displayInfosByMonthMoveAndGangwon(myMonth)
-
                         }
                     }
-
                 }
                 "Love" -> {
-                    Log.d("JJS", "Love")
+                    //Log.d("JJS", "Love")
                     when (myGo) {
                         "Korea" -> {
-                            Log.d("JJS", "Korea")
+                            //Log.d("JJS", "Korea")
                             //displayInfosByMonthLoveAndKorea()
-
                         }
                         "Seoul" -> {
-                            Log.d("JJS", "Seoul")
+                            //Log.d("JJS", "Seoul")
                             //displayInfosByMonthLoveAndSeoul()
-
                         }
                         "Jeju" -> {
-                            Log.d("JJS", "Jeju")
+                            //Log.d("JJS", "Jeju")
                             //displayInfosByMonthLoveAndJejue()
-
                         }
                         "Gangwon" -> {
-                            Log.d("JJS", "Gangwon")
+                            //Log.d("JJS", "Gangwon")
                             //displayInfosByMonthLoveAndGangwon()
-
                         }
                     }
-
                 }
                 "Money" -> {
-                    Log.d("JJS", "Money")
+                    //Log.d("JJS", "Money")
                     when (myGo) {
                         "Korea" -> {
-                            Log.d("JJS", "Korea")
+                            //Log.d("JJS", "Korea")
                             //displayInfosByMonthMoneyAndKorea()
-
                         }
                         "Seoul" -> {
-                            Log.d("JJS", "Seoul")
+                            //Log.d("JJS", "Seoul")
                             //displayInfosByMonthMoneyAndSeoul()
-
                         }
                         "Jeju" -> {
-                            Log.d("JJS", "Jeju")
+                            //Log.d("JJS", "Jeju")
                             //displayInfosByMonthMoneyAndJejue()
-
                         }
                         "Gangwon" -> {
-                            Log.d("JJS", "Gangwon")
+                            //Log.d("JJS", "Gangwon")
                             //displayInfosByMonthMoneyAndGangwon()
-
                         }
                     }
-
                 }
             }
         }
-
         val view = binding.root
         return view
-
     }
 
     private fun displayInfosByMonth(myMonth: Int) {
@@ -236,11 +211,9 @@ class MonthFragment : Fragment(), CellClickListener {
             })
     }
 
-
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-
     }
 
     @SuppressLint("UseRequireInsteadOfGet")

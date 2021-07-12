@@ -1,14 +1,18 @@
 package com.jiban.goodday
 
 import android.os.Bundle
+import android.util.Log
+import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.RadioButton
 import android.widget.Toast
+import android.widget.Toast.LENGTH_LONG
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import com.jiban.goodday.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
+import java.util.*
 
 
 @AndroidEntryPoint
@@ -29,92 +33,46 @@ class MainActivity : AppCompatActivity() {
         transaction.addToBackStack(null)
         transaction.commit()
 
-        // Returns View.NO_ID if nothing is checked.
-        binding.radioGroup1.setOnCheckedChangeListener { group, checkedId ->
-            val radio1: RadioButton = findViewById(checkedId)
-            Toast.makeText(
-                applicationContext,
-                "On checked change : ${radio1.text}",
-                Toast.LENGTH_SHORT
-            ).show()
-        }
-        binding.radioGroup2.setOnCheckedChangeListener { group, checkedId ->
-            val radio2: RadioButton = findViewById(checkedId)
-            Toast.makeText(
-                applicationContext,
-                "On checked change : ${radio2.text}",
-                Toast.LENGTH_SHORT
-            ).show()
-        }
-
         //month menu
-        val englishMonthList: Array<out String> = resources.getStringArray(R.array.month_menu)
-        var englishMonth: String? = null
+        val thisMonth: Int = Calendar.getInstance().get(Calendar.MONTH)
+        var intList: ArrayList<Int> = arrayListOf()
+        var intMonth: Int = 0
+        var intBuf = thisMonth
 
-        val adapter = ArrayAdapter(this, R.layout.item_monthmenu, englishMonthList)
+        for (i in 0 until 12 - (thisMonth)) {
+            intBuf ++
+            intList.add(intBuf)
+        }
+        val adapter = ArrayAdapter(this, R.layout.item_monthmenu, intList)
         binding.monthAutoComplete.setAdapter(adapter)
-
         binding.monthAutoComplete.setOnItemClickListener { _, _, position, _ ->
-            englishMonth = adapter.getItem(position) ?: ""
-            Toast.makeText(this, englishMonth, Toast.LENGTH_LONG).show()
+            intMonth = ((adapter.getItem(position) ?: "") as Int)
+            Toast.makeText(this, intMonth.toString() + "월을 선택하셨습니다!", Toast.LENGTH_SHORT).show()
         }
 
         // button processing
         binding.getBtn.setOnClickListener {
+            Toast.makeText(this, intMonth.toString() + "월의 Good Day를 검색합니다.", Toast.LENGTH_SHORT)
+                .show()
+            Timer().schedule(object : TimerTask() {
+                override fun run() {
+                    Log.d("JJS", "Search some Good Days")
+                }
+            }, 5000)
 
-            var id1: Int = binding.radioGroup1.checkedRadioButtonId
-            var id2: Int = binding.radioGroup2.checkedRadioButtonId
-
+            val id1: Int = binding.radioGroup1.checkedRadioButtonId
+            val id2: Int = binding.radioGroup2.checkedRadioButtonId
             val radio1: RadioButton = findViewById(id1)
             val radio2: RadioButton = findViewById(id2)
 
-            if (id1 != - 1 && id2 != - 1) {
-                Toast.makeText(
-                    applicationContext, "On button click : ${radio1.text} and ${radio2.text}",
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
-
-            if (id1 == - 1 && id2 == - 1) {
-                Toast.makeText(
-                    applicationContext, "On button click : ${radio1.text} and ${radio2.text}",
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
-
-            if (id1 != - 1 || id2 != - 1) {
-                if (id1 != - 1) {
-                    Toast.makeText(
-                        applicationContext, "On button click : ${radio1.text}",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                } else {
-                    Toast.makeText(
-                        applicationContext, "On button click : ${radio2.text}",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
-            }
-
             //get the data
             val bundle = Bundle()
-            //val myMonth = binding.monthEt.text
-            var myMonth: Int? = 0
-            when (englishMonth) {
-                "Jan" -> myMonth = 1
-                "Feb" -> myMonth = 2
-                "Mar" -> myMonth = 3
-                "Apr" -> myMonth = 4
-                "May" -> myMonth = 5
-                "Jun" -> myMonth = 6
-                "Jul" -> myMonth = 7
-                "Aug" -> myMonth = 8
-                "Sep" -> myMonth = 9
-                "Oct" -> myMonth = 10
-                "Nov" -> myMonth = 11
-                "Dec" -> myMonth = 12
-            }
 
+            if (intMonth == 0) {
+                Toast.makeText(this, "원하시는 월을 선택해 주세요", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+            val myMonth = intMonth
             val myDo = radio1.text
             val myGo = radio2.text
 
@@ -128,10 +86,38 @@ class MainActivity : AppCompatActivity() {
             transaction.replace(R.id.myFrame, fragment)
             transaction.addToBackStack(null)
             transaction.commit()
-
         }
-
     }
 
+    fun onRadioButtonClicked(view: View) {
+        if (view is RadioButton) {
+            // Is the button now checked?
+            val checked = view.isChecked
+
+            // Check which radio button was clicked
+            when (view.getId()) {
+                R.id.radio_button1_3 ->
+                    if (checked) {
+                        Toast.makeText(
+                            this,
+                            "Under Construction by Based on statistical data and the study of Yin-Yang and Five Elements ",
+                            LENGTH_LONG
+                        ).show()
+                        view.isChecked = false
+                    }
+                R.id.radio_button1_4 ->
+                    if (checked) {
+                        Toast.makeText(
+                            this,
+                            "Under Construction by Based on statistical data and the study of Yin-Yang and Five Elements ",
+                            LENGTH_LONG
+                        ).show()
+                        view.isChecked = false
+                    }
+            }
+        }
+    }
 }
+
+
 

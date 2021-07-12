@@ -44,7 +44,6 @@
                 android:text="월"
                 android:textAppearance="?attr/textAppearanceHeadline4" />
 
-
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/frgmentRv"
                 android:layout_width="match_parent"
