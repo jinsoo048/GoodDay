@@ -14,7 +14,6 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.jiban.goodday.adapter.InfoAdapter
 import com.jiban.goodday.adapter.InfoNewAdapter
 import com.jiban.goodday.data.Info
 import com.jiban.goodday.databinding.FragmentMonthBinding
@@ -238,12 +237,6 @@ class MonthFragment : Fragment(), CellClickListener {
     }
 
 
-    private fun displayInfo(adapter: InfoAdapter) {
-        infoViewModel.infos.observe(viewLifecycleOwner) { infos ->
-            adapter.submitList(infos)
-        }
-    }
-
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
@@ -258,18 +251,9 @@ class MonthFragment : Fragment(), CellClickListener {
             Toast.LENGTH_SHORT
         ).show()
 
-        /*
-        //move to openfragment
-        val transaction = activity !!.supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.myFrame, GooddayDetailFragment(data,myMonth,myDo,myGo))
-        transaction.disallowAddToBackStack()
-        transaction.commit()
-*/
-
         context?.let {
             MaterialAlertDialogBuilder(it)
                 .setTitle(resources.getString(R.string.title))
-                .setMessage(resources.getString(R.string.supporting_text))
                 .setMessage(
                     "선택하신 날은 ${myMonth}월 ${data.day}일 ${data.dayOfTheWeek} 입니다.\n" +
                             "행사의 주요 목적은 ${myDo} 입니다.\n" +
@@ -308,9 +292,8 @@ class MonthFragment : Fragment(), CellClickListener {
                }
                */
                 .setPositiveButton(resources.getString(R.string.accept)) { dialog, which ->
-                    // Respond to positive button press
+                   // dialog.dismiss()
                 }
-
                 .show()
         }
     }

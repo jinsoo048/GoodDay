@@ -1,6 +1,7 @@
 package com.jiban.goodday.adapter
 
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -11,29 +12,31 @@ import com.jiban.goodday.data.Info
 import com.jiban.goodday.databinding.ItemGooddayBinding
 
 
+private var _binding: ItemGooddayBinding? = null
+private val binding get() = _binding !!
+
 class InfoNewAdapter(private val cellClickListener: CellClickListener) :
     ListAdapter<Info, InfoNewViewHolder>(InfoNewsComparator) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): InfoNewViewHolder {
-        return InfoNewViewHolder(
-            ItemGooddayBinding.inflate(
-                LayoutInflater.from(parent.context), parent, false
-            )
-        )
+        _binding = ItemGooddayBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return InfoNewViewHolder(_binding !!)
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     override fun onBindViewHolder(holder: InfoNewViewHolder, position: Int) {
         val item = getItem(position)
         item?.let { holder.bind(it) }
 
-        holder.itemView.setOnClickListener {
+        holder.binding.itemCard.setOnClickListener {
             if (item != null) {
+                binding.itemCard.isChecked = binding.itemCard.isChecked
                 cellClickListener.onCellClickListener(item)
             }
         }
     }
 }
 
-class InfoNewViewHolder(private val binding: ItemGooddayBinding) :
+class InfoNewViewHolder(internal val binding: ItemGooddayBinding) :
     RecyclerView.ViewHolder(binding.root) {
     fun bind(info: Info) = with(binding) {
         dayTv.text = info.day.toString()
