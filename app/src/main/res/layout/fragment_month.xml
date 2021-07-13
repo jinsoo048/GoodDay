@@ -16,7 +16,6 @@
         app:cardElevation="0dp"
         app:layout_constraintTop_toTopOf="parent"
         app:strokeColor="@color/stroke_color"
-        android:background="@color/black"
         app:strokeWidth="1dp"
         card_view:cardBackgroundColor="#dcdcdc"
         card_view:cardCornerRadius="4dp">
