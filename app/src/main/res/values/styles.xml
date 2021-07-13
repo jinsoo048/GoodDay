@@ -40,4 +40,10 @@
         <item name="itemTextAppearance">?attr/textAppearanceBody2</item>
     </style>
 
+    <style name="Theme.CreativeLearning" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/purple_700</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="android:statusBarColor" tools:targetApi="l">@color/purple_700</item>
+    </style>
+
 </resources>

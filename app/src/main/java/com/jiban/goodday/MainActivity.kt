@@ -35,6 +35,11 @@ class MainActivity : AppCompatActivity() {
 
         //month menu
         val thisMonth: Int = Calendar.getInstance().get(Calendar.MONTH)
+
+        //Year setting to the UI
+        val thisYear: Int = Calendar.getInstance().get(Calendar.YEAR)
+        binding.yearTv.text = thisYear.toString()
+
         var intList: ArrayList<Int> = arrayListOf()
         var intMonth: Int = 0
         var intBuf = thisMonth

@@ -148,4 +148,10 @@
     <string name="text_appearance_button_label">Button</string>
     <string name="text_appearance_caption_label">Caption</string>
     <string name="text_appearance_overline_label">Overline</string>
+    <string name="KoreanMonth">월</string>
+    <string name="fishLogo">Fish Log</string>
+    <string name="CurruntYear">Current Year</string>
+    <string name="CurrentYear">0000</string>
+    <string name="CurrentMonth">Month</string>
+    <string name="koreanYear">년</string>
 </resources>
