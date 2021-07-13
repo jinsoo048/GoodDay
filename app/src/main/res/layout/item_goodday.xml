@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
@@ -8,29 +8,22 @@
         android:id="@+id/itemCard"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:focusable="true"
+        app:cardCornerRadius="4dp"
         android:layout_margin="8dp"
-        app:layout_constraintTop_toTopOf="parent"
         android:color="@android:color/darker_gray"
         android:clickable="true"
-        android:focusable="true"
-        app:layout_constraintLeft_toLeftOf="parent">
+        app:cardElevation="@dimen/keyline_2">
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="16dp">
 
-
-            <LinearLayout
+            <TextView
+                android:id="@+id/dayTv"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="16dp">
-
-                <!-- Title, secondary and supporting text -->
-                <TextView
-                    android:id="@+id/dayTv"
-                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:hint="@string/title"
                     android:textAppearance="?attr/textAppearanceHeadline6" />
@@ -43,8 +36,7 @@
                     android:textAppearance="?attr/textAppearanceBody2"
                     android:textColor="?android:attr/textColorSecondary" />
 
-            </LinearLayout>
         </LinearLayout>
 
     </com.google.android.material.card.MaterialCardView>
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
