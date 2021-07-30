@@ -24,7 +24,7 @@ import kotlinx.coroutines.Job
 @AndroidEntryPoint
 class MonthFragment : Fragment(), CellClickListener {
 
-    private val adapter = InfoNewAdapter(this)
+    private val adapter = InfoNewAdapter(context, this)
     private var searchJob: Job? = null
     private val infoViewModel: InfoViewModel by viewModels()
     private var _binding: FragmentMonthBinding? = null
@@ -58,22 +58,17 @@ class MonthFragment : Fragment(), CellClickListener {
         if (myMonth != null) {
             when (myDo) {
                 "Outdoor" -> {
-                    //Log.d("JJS", "Outdoor")
                     when (myGo) {
                         "Korea" -> {
-                            //Log.d("JJS", "Korea")
                             displayInfosByMonthExcerciseAndKorea(myMonth)
                         }
                         "Seoul" -> {
-                            //Log.d("JJS", "Seoul")
                             displayInfosByMonthOutdoorAndSeoul(myMonth)
                         }
                         "Jeju" -> {
-                            //Log.d("JJS", "Jeju")
                             displayInfosByMonthOutdoorAndjejue(myMonth)
                         }
                         "Gangwon" -> {
-                            //Log.d("JJS", "Gangwon")
                             displayInfosByMonthOutdoorAndGangwon(myMonth)
                         }
                     }
@@ -83,61 +78,47 @@ class MonthFragment : Fragment(), CellClickListener {
                     val sohn: String = "yes"
                     when (myGo) {
                         "Korea" -> {
-                            //Log.d("JJS", "Korea")
                             displayInfosByMonthMoveAndKorea(myMonth)
                         }
                         "Seoul" -> {
-                            //Log.d("JJS", "Seoul")
                             displayInfosByMonthMoveAndSeoul(myMonth)
                         }
                         "Jeju" -> {
-                            //Log.d("JJS", "Jeju")
                             displayInfosByMonthMoveAndJejue(myMonth)
                         }
                         "Gangwon" -> {
-                            //Log.d("JJS", "Gangwon")
                             displayInfosByMonthMoveAndGangwon(myMonth)
                         }
                     }
                 }
                 "Love" -> {
-                    //Log.d("JJS", "Love")
                     when (myGo) {
                         "Korea" -> {
-                            //Log.d("JJS", "Korea")
                             //displayInfosByMonthLoveAndKorea()
                         }
                         "Seoul" -> {
-                            //Log.d("JJS", "Seoul")
                             //displayInfosByMonthLoveAndSeoul()
                         }
                         "Jeju" -> {
-                            //Log.d("JJS", "Jeju")
                             //displayInfosByMonthLoveAndJejue()
                         }
                         "Gangwon" -> {
-                            //Log.d("JJS", "Gangwon")
                             //displayInfosByMonthLoveAndGangwon()
                         }
                     }
                 }
                 "Money" -> {
-                    //Log.d("JJS", "Money")
                     when (myGo) {
                         "Korea" -> {
-                            //Log.d("JJS", "Korea")
                             //displayInfosByMonthMoneyAndKorea()
                         }
                         "Seoul" -> {
-                            //Log.d("JJS", "Seoul")
                             //displayInfosByMonthMoneyAndSeoul()
                         }
                         "Jeju" -> {
-                            //Log.d("JJS", "Jeju")
                             //displayInfosByMonthMoneyAndJejue()
                         }
                         "Gangwon" -> {
-                            //Log.d("JJS", "Gangwon")
                             //displayInfosByMonthMoneyAndGangwon()
                         }
                     }
@@ -255,15 +236,6 @@ class MonthFragment : Fragment(), CellClickListener {
                                 "손이 있는 날입니다\n"
                             }
                 )
-                /*
-               .setNeutralButton(resources.getString(R.string.cancel)) { dialog, which ->
-                   // Respond to neutral button press
-               }
-
-               .setNegativeButton(resources.getString(R.string.decline)) { dialog, which ->
-                   // Respond to negative button press
-               }
-               */
                 .setPositiveButton(resources.getString(R.string.accept)) { dialog, which ->
                    // dialog.dismiss()
                 }

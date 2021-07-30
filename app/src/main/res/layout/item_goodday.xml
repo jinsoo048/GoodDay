@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="wrap_content">
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/itemCard"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:clickable="true"
+        android:color="@android:color/darker_gray"
         android:focusable="true"
         app:cardCornerRadius="4dp"
-        android:layout_margin="8dp"
-        android:color="@android:color/darker_gray"
-        android:clickable="true"
         app:cardElevation="@dimen/keyline_2">
 
         <LinearLayout
@@ -21,22 +21,29 @@
             android:orientation="vertical"
             android:padding="16dp">
 
+            <ImageView
+                android:id="@+id/monthIv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal" />
+
             <TextView
                 android:id="@+id/dayTv"
                 android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/title"
-                    android:textAppearance="?attr/textAppearanceHeadline6" />
+                android:layout_height="wrap_content"
+                android:hint="@string/title"
+                android:textAppearance="?attr/textAppearanceHeadline6" />
 
-                <TextView
-                    android:id="@+id/dayOfTheWeekTv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/secondary_text"
-                    android:textAppearance="?attr/textAppearanceBody2"
-                    android:textColor="?android:attr/textColorSecondary" />
+            <TextView
+                android:id="@+id/dayOfTheWeekTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="@string/secondary_text"
+                android:textAppearance="?attr/textAppearanceBody2"
+                android:textColor="?android:attr/textColorSecondary" />
 
         </LinearLayout>
+
 
     </com.google.android.material.card.MaterialCardView>
 </LinearLayout>

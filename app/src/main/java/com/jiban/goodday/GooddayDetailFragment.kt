@@ -34,5 +34,4 @@ class GooddayDetailFragment(
         super.onDestroyView()
         _binding = null
     }
-
 }
