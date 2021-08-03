@@ -24,8 +24,8 @@ android {
         applicationId "com.jiban.goodday"
         minSdkVersion rootProject.minSdkVersion
         targetSdkVersion rootProject.targetSdkVersion
-        versionCode 1
-        versionName "0.1.6"
+        versionCode 3
+        versionName "0.2.1"
         vectorDrawables.useSupportLibrary true
 
         // Consult the README on instructions for setting up Unsplash API key
@@ -157,7 +157,7 @@ dependencies {
     androidTestImplementation "androidx.test.ext:junit:$rootProject.androidxJunitVersion"
 
     //random color
-    compile 'com.github.lzyzsd.randomcolor:library:1.0.0'
+    implementation 'com.github.lzyzsd.randomcolor:library:1.0.0'
 }
 
 def getUnsplashAccess() {

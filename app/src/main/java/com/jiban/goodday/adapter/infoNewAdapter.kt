@@ -75,7 +75,33 @@ class InfoNewViewHolder(val context: Context?, internal val binding: ItemGoodday
 
         //monthIv.setImageResource(resId)
         dayTv.text = info.day.toString()
-        dayOfTheWeekTv.text = info.dayOfTheWeek
+
+        var koreanDay: String? = null
+        when (info.dayOfTheWeek) {
+            "Monday" -> {
+                koreanDay = "월요일"
+            }
+            "Tuesday" -> {
+                koreanDay = "화요일"
+            }
+            "Wednesday" -> {
+                koreanDay = "수요일"
+            }
+            "Thursday" -> {
+                koreanDay = "목요일"
+            }
+            "Friday" -> {
+                koreanDay = "금요일"
+            }
+            "Saturday" -> {
+                koreanDay = "토요일"
+            }
+            "Sunday" -> {
+                koreanDay = "일요일"
+            }
+        }
+
+        dayOfTheWeekTv.text = koreanDay
     }
 }
 

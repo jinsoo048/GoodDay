@@ -9,7 +9,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
@@ -20,6 +22,7 @@ import com.jiban.goodday.databinding.FragmentMonthBinding
 import com.jiban.goodday.viewmodels.InfoViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Job
+
 
 @AndroidEntryPoint
 class MonthFragment : Fragment(), CellClickListener {
@@ -43,16 +46,32 @@ class MonthFragment : Fragment(), CellClickListener {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentMonthBinding.inflate(inflater, container, false)
-        myMonthString = this.arguments !!.getString("myMonth")
-        myDo = this.arguments !!.getString("myDo")
-        myGo = this.arguments !!.getString("myGo")
+
+        myMonthString = arguments !!.getString("myMonth")
+        myDo = arguments !!.getString("myDo")
+        myGo = arguments !!.getString("myGo")
+
+        activity?.onBackPressedDispatcher?.addCallback(
+            viewLifecycleOwner,
+            object : OnBackPressedCallback(true) {
+                override fun handleOnBackPressed() {
+
+                    val fragment: Fragment = InputFragment()
+                    //fragment.arguments = bundle
+                    val transaction: FragmentTransaction =
+                        requireActivity().supportFragmentManager.beginTransaction()
+                    transaction.replace(R.id.myFrame, fragment)
+                    transaction.addToBackStack(null)
+                    transaction.commit()
+                }
+            })
 
         //header Month getString
         binding.headerMonthTv.text = myMonthString
 
         //recyclerview adapter
         binding.frgmentRv.adapter = adapter
-        binding.frgmentRv.layoutManager = GridLayoutManager(context, 2)
+        binding.frgmentRv.layoutManager = GridLayoutManager(context, 3)
         myMonth = myMonthString !!.toInt()
 
         if (myMonth != null) {
@@ -125,8 +144,7 @@ class MonthFragment : Fragment(), CellClickListener {
                 }
             }
         }
-        val view = binding.root
-        return view
+        return binding.root
     }
 
     private fun displayInfosByMonth(myMonth: Int) {

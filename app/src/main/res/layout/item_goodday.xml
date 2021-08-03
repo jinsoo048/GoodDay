@@ -31,14 +31,12 @@
                 android:id="@+id/dayTv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="@string/title"
                 android:textAppearance="?attr/textAppearanceHeadline6" />
 
             <TextView
                 android:id="@+id/dayOfTheWeekTv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="@string/secondary_text"
                 android:textAppearance="?attr/textAppearanceBody2"
                 android:textColor="?android:attr/textColorSecondary" />
 

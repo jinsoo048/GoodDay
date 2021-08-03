@@ -7,250 +7,35 @@
     android:textAlignment="center"
     tools:context=".MainActivity">
 
+
     <com.google.android.material.appbar.AppBarLayout
-        style="@style/Widget.MaterialComponents.AppBarLayout.Surface"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:paddingTop="20dp"
-        android:paddingBottom="10dp"
-        android:translationZ="@dimen/elevation_default_top_app_bar">
+        android:background="@color/white"
+        app:liftOnScroll="true">
 
-        <com.google.android.material.appbar.CollapsingToolbarLayout
+        <com.google.android.material.appbar.MaterialToolbar
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/keyline_4"
-                android:layout_marginEnd="@dimen/keyline_4"
-                android:orientation="horizontal">
-
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    app:srcCompat="@drawable/ic_fish_foreground" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginStart="@dimen/keyline_2"
-                    android:layout_marginEnd="@dimen/keyline_4"
-                    android:gravity="center_vertical"
-                    android:text="@string/app_name"
-                    android:textAppearance="?textAppearanceHeadline4"
-                    android:textColor="@color/material_on_surface_emphasis_high_type"
-                    android:textStyle="bold"
-                    app:fontFamily="@font/roboto_black_italic" />
-
-            </LinearLayout>
-        </com.google.android.material.appbar.CollapsingToolbarLayout>
-
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/white"
+            app:layout_scrollFlags="scroll|enterAlways|snap"
+            app:navigationIcon="@drawable/ic_goodday2"
+            app:title="GoodDay"
+            app:titleTextAppearance="?attr/textAppearanceHeadline4"
+            app:titleTextColor="@color/black_900" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
-
-    <FrameLayout
-        android:id="@+id/myFrame"
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        tools:layout="@layout/fragment_month" />
-
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/mainCv"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="410dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <LinearLayout
-            android:id="@+id/mainLl"
+        <FrameLayout
+            android:id="@+id/myFrame"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:id="@+id/firstLl"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="start"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/yearTv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="10dp"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:hint="@string/CurrentYear"
-                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginEnd="10dp"
-                    android:gravity="center_vertical"
-                    android:text="@string/koreanYear"
-                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/menu"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:hint="@string/label">
-
-                    <AutoCompleteTextView
-                        android:id="@+id/monthAutoComplete"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:inputType="none"
-                        android:labelFor="@+id/menu" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:baselineAligned="false"
-                android:gravity="center_horizontal"
-                android:orientation="horizontal">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/radio_header1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="start"
-                        android:layout_marginStart="10dp"
-                        android:padding="@dimen/small_padding"
-                        android:text="@string/question_article1"
-                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
-
-                    <RadioGroup
-                        android:id="@+id/radioGroup1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="center_horizontal"
-                        android:checkedButton="@+id/radio_button1_1"
-                        android:orientation="vertical">
-
-                        <RadioButton
-                            android:id="@+id/radio_button1_1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/label1_1"
-                            app:buttonTint="@color/purple_500" />
-
-                        <RadioButton
-                            android:id="@+id/radio_button1_2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/label1_2"
-                            app:buttonTint="@color/purple_500" />
-
-                        <RadioButton
-                            android:id="@+id/radio_button1_3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:onClick="onRadioButtonClicked"
-                            android:text="@string/label1_3"
-                            app:buttonTint="@color/purple_500" />
-
-                        <RadioButton
-                            android:id="@+id/radio_button1_4"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:onClick="onRadioButtonClicked"
-                            android:text="@string/label1_4"
-                            app:buttonTint="@color/purple_500" />
-                    </RadioGroup>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/radio_header2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="start"
-                        android:layout_marginStart="10dp"
-                        android:padding="@dimen/small_padding"
-                        android:text="@string/question_article2"
-                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
-
-                    <RadioGroup
-                        android:id="@+id/radioGroup2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="center_horizontal"
-                        android:checkedButton="@+id/radio_button2_1"
-                        android:orientation="vertical">
-
-                        <RadioButton
-                            android:id="@+id/radio_button2_1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/label2_1"
-                            app:buttonTint="@color/purple_500" />
-
-                        <RadioButton
-                            android:id="@+id/radio_button2_2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/label2_2"
-                            app:buttonTint="@color/purple_500" />
-
-                        <RadioButton
-                            android:id="@+id/radio_button2_3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/label2_3"
-                            app:buttonTint="@color/purple_500" />
-
-                        <RadioButton
-                            android:id="@+id/radio_button2_4"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/label2_4"
-                            app:buttonTint="@color/purple_500" />
-                    </RadioGroup>
-                </LinearLayout>
-            </LinearLayout>
-
-            <Button
-                android:id="@+id/getBtn"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="10dp"
-                android:text="@string/have_a_good_day"
-                app:icon="@drawable/ic_baseline_search_24" />
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
-
+            tools:layout="@layout/fragment_month" />
+    </androidx.core.widget.NestedScrollView>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
