@@ -24,7 +24,7 @@ android {
         applicationId "com.jiban.goodday"
         minSdkVersion rootProject.minSdkVersion
         targetSdkVersion rootProject.targetSdkVersion
-        versionCode 3
+        versionCode 4
         versionName "0.2.1"
         vectorDrawables.useSupportLibrary true
 
